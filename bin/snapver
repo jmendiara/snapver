@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var conf = require('../src/config'),
+    program = require('commander'),
+    snapver = require('../src/index');
+
+function fail() {
+  process.exit(1);
+}
+
+program
+    .version(require('../package.json').version);
+
+program
+    .command('start <type>')
+    .description('starts a new <patch, minor, major> version development')
+    .action(function(type) {
+      snapver().start(type).catch(fail);
+    });
+
+program
+    .command('release')
+    .description('releases the current development')
+    .action(function() {
+      snapver().release().catch(fail);
+    });
+
+
+//TODO: need to access private definitions in convict, cause conf.toSchemaString()
+//      does not give all needed
+Object.keys(conf._def).forEach(function(paramName) {
+  //TODO: will convict support short options?
+  /*
+   *  --branch <branch>  The branch to put the releases [master]
+   *                     Environment var: SNAPVER_BRANCH
+   */
+  var param = conf._def[paramName];
+  var def = '--' + param.arg + (param.format !== Boolean ?
+      ' <' + paramName + '>' :
+      '');
+  var doc = param.doc + ' [' + param.default + ']';
+  program
+      .option(def, doc)
+      .option('', 'Environment var: ' + conf._def[paramName].env);
+});
+
+program.on('--help', function() {
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ snapver start patch --suffix canary');
+  console.log('    $ snapver end         --branch develop');
+});
+
+program.parse(process.argv);
