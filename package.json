@@ -7,8 +7,8 @@
     "snapver": "bin/snapver"
   },
   "scripts": {
-    "travis": "istanbul cover ./node_modules/.bin/mocha --report lcovonly -- -R spec test/environment.js test/**/*.spec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-    "coverage": "istanbul cover ./node_modules/.bin/mocha -- -R dot test/environment.js test/**/*.spec.js",
+    "travis": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/environment.js test/**/*.spec.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R dot test/environment.js test/**/*.spec.js",
     "lint": "jscs src && eslint src",
     "test": "mocha -R spec test/environment.js test/**/*.spec.js",
     "watch": "mocha -w -R spec test/environment.js test/**/*.spec.js",
