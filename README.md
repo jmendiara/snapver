@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/snapver.svg)](http://badge.fury.io/js/snapver)
 [![Build Status](https://travis-ci.org/jmendiara/snapver.svg)](https://travis-ci.org/jmendiara/snapver)
-[![Coverage Status](https://img.shields.io/coveralls/jmendiara/snapver.svg)](https://coveralls.io/r/jmendiara/snapver)
+[![Coverage Status](https://img.shields.io/coveralls/jmendiara/snapver.svg)](https://coveralls.io/r/jmendiara/snapver?branch=develop)
 [![Dependency Status](https://david-dm.org/jmendiara/snapver.png)](https://david-dm.org/jmendiara/snapver)
 [![devDependency Status](https://david-dm.org/jmendiara/snapver/dev-status.svg)](https://david-dm.org/jmendiara/snapver#info=devDependencies)
 
