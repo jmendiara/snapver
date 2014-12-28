@@ -2,7 +2,8 @@
 
 var config = require('./config'),
     start = require('./processes/start'),
-    release = require('./processes/release');
+    release = require('./processes/release'),
+    status = require('./processes/status');
 
 /**
  * The API factory for snapver
@@ -28,6 +29,12 @@ module.exports = function snapver(conf) {
      * @param {callback} [cb] The execution callback
      * @returns {Promise} [promise] The execution promise
      */
-    release: release
+    release: release,
+    /**
+     * Gets the versions being developed
+     * @param {callback} [cb] The execution callback
+     * @returns {Promise} [promise] The execution promise
+     */
+    status: status
   };
 };

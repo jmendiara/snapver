@@ -25,6 +25,17 @@ program
       snapver().release().catch(fail);
     });
 
+program
+    .command('status')
+    .description('gets the version being developed')
+    .action(function() {
+      snapver().status()
+          .tap(function(obj) {
+            console.log(JSON.stringify(obj, null, 2));
+          })
+          .catch(fail);
+    });
+
 
 //TODO: need to access private definitions in convict, cause conf.toSchemaString()
 //      does not give all needed
