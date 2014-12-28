@@ -1,6 +1,6 @@
 {
   "name": "snapver",
-  "version": "0.1.1-SNAPSHOT",
+  "version": "0.1.1",
   "description": "Snapshot / canary javascript project lifecicle management",
   "main": "src/index.js",
   "bin": {
